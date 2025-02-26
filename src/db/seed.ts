@@ -94,7 +94,7 @@ const generateData = () => {
         nimMahasiswa: mahasiswa.nim,
         kodeMataKuliah: matkul.kode,
         namaMataKuliah: matkul.nama,
-        nilai: faker.number.int({ min: 0, max: 4 }), // Nilai antara 50-100
+        nilai: faker.number.int({ min: 0, max: 100 }), // Nilai antara 0-100
         dosen: matkul.dosen,
       });
     });

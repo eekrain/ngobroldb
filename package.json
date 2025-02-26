@@ -12,9 +12,12 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:seed": "bun run src/db/seed.ts",
-    "db:reset": "bun run src/db/reset.ts"
+    "db:reset": "bun run src/db/reset.ts",
+    "db:tes": "bun run src/db/tes.ts"
   },
   "dependencies": {
+    "@openrouter/ai-sdk-provider": "^0.3.1",
+    "ai": "^4.1.46",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.40.0",
     "next": "15.1.7",
