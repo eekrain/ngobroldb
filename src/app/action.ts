@@ -2,7 +2,6 @@
 import { db } from "@/db";
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { generateObject } from "ai";
-import { sql } from "drizzle-orm";
 import { z } from "zod";
 
 export type Result = Record<string, string | number>;
@@ -76,12 +75,12 @@ export const executeSQL = async (query: string) => {
 
   let result: any;
   try {
-    result = await db.execute(sql`${query}`);
-    const x = await db.execute(sql`${query}`);
+    result = await db.execute(query);
   } catch (error) {
     console.error("🚀 ~ executeSQL ~ error:", error);
     throw new Error("Failed to execute SQL");
   }
+  console.log("🚀 ~ executeSQL ~ result:", result);
 
   return result.rows as Result[];
 };
