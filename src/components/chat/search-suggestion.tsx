@@ -8,7 +8,7 @@ const suggestion = [
   "Daftar mata kuliah yang diambil oleh setiap mahasiswa",
   "Jumlah mata kuliah yang diambil per mahasiswa",
   "Detail mata kuliah: kode, nama, dosen pengampu",
-  "Nilai yang diperoleh mahasiswa pada masing-masing mata kuliah",
+  "Nilai yang diperoleh mahasiswa pada masing-masing mata kuliah, tampilkan nilai dalam bentuk huruf A sampai E",
   "Rata-rata nilai per mata kuliah dan per mahasiswa",
   "Mata kuliah dengan nilai tertinggi atau terendah",
   "Kinerja akademik mahasiswa (misalnya, ranking berdasarkan nilai rata-rata)",

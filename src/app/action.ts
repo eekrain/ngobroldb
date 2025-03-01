@@ -82,5 +82,6 @@ export const executeSQL = async (query: string) => {
   }
   console.log("🚀 ~ executeSQL ~ result:", result);
 
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   return result.rows as Result[];
 };

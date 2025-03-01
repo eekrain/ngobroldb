@@ -38,12 +38,23 @@ export const ChatForm = (props: Props) => {
     }
   };
 
+  const resetPrompt = () => {
+    setInputValue("");
+    setSubmitted(false);
+    setResults([]);
+    setActiveQuery("");
+    setLoadingExec(false);
+    setLoadingPrompt(false);
+  };
+
   return (
     <div>
       <PromptInput
         inputValue={inputValue}
         setInputValue={setInputValue}
         handleSubmit={handleSubmit}
+        submitted={submitted}
+        resetPrompt={resetPrompt}
       />
       {!submitted && (
         <SearchSuggestion
