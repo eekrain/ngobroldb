@@ -54,6 +54,16 @@ export default function BrowsePage() {
           <BrowseMahasiswa
             title="KRS"
             description="List semua data KRS"
+            displayColumns={[
+              "id",
+              "nim",
+              "kode matkul",
+              "nama matkul",
+              "nilai",
+              "dosen",
+              "dibuat",
+              "diupdate",
+            ]}
             fetchData={fetchKrs}
           />
         </TabsContent>

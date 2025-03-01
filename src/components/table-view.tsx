@@ -8,7 +8,13 @@ import {
   TableCell,
 } from "@/components/ui/table";
 
-export const TableView = ({ results }: { results: Result[] }) => {
+export const TableView = ({
+  results,
+  displayColumns,
+}: {
+  results: Result[];
+  displayColumns?: string[];
+}) => {
   const columns = results.length > 0 ? Object.keys(results[0]) : [];
 
   return (
@@ -20,7 +26,7 @@ export const TableView = ({ results }: { results: Result[] }) => {
               key={index}
               className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
             >
-              {column}
+              {displayColumns ? displayColumns[index] : column}
             </TableHead>
           ))}
         </TableRow>

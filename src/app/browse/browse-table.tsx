@@ -24,13 +24,19 @@ const LIMIT_PER_PAGE = 10;
 type Props = {
   title: string;
   description: string;
+  displayColumns?: string[];
   fetchData: (
     currentPage: number,
     limitPerPage: number
   ) => Promise<PaginatedResponse>;
 };
 
-export default function BrowseTable({ title, description, fetchData }: Props) {
+export default function BrowseTable({
+  title,
+  description,
+  fetchData,
+  displayColumns,
+}: Props) {
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState<PaginatedResponse>({
     data: [],
@@ -68,7 +74,7 @@ export default function BrowseTable({ title, description, fetchData }: Props) {
   useEffect(() => {
     fetchData(currentPage, LIMIT_PER_PAGE)
       .then((res) => setData(res))
-      .catch((error) => console.error("Error fetching mahasiswa:", error));
+      .catch((error) => console.error("Error fetching data:", error));
   }, [currentPage]);
 
   return (
@@ -78,7 +84,7 @@ export default function BrowseTable({ title, description, fetchData }: Props) {
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <TableView results={data.data} />
+        <TableView results={data.data} displayColumns={displayColumns} />
 
         <div className="mt-4 flex justify-center">
           <Pagination>
