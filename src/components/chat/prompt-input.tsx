@@ -61,7 +61,7 @@ export const PromptInput = ({
           onChange={(e) => setInputValue(e.currentTarget.value)}
         />
 
-        <div className="flex gap-4 mx-3 py-2 border-t justify-end">
+        <div className="flex gap-4 px-3 py-2 border-t justify-end">
           {submitted && (
             <TooltipProvider>
               <Tooltip>

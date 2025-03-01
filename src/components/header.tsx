@@ -11,17 +11,19 @@ export const Header = (props: Props) => {
   return (
     <header className="border-b shadow-lg py-4">
       <nav className="container flex items-center justify-between">
-        <div className="flex gap-2 items-center">
+        <Link href="/" className="flex gap-2 items-center">
           <img src="/logo.svg" alt="logo" className="size-8" />
-          <h3 className="font-bold text-xl font-title">NgobrolDB</h3>
-        </div>
+          <h3 className="font-bold text-xl font-title text-primary">
+            NgobrolDB
+          </h3>
+        </Link>
 
         <ul className="flex gap-4">
           <li>
             <Link
               href="/"
-              className={`font-medium font-title hover:text-blue-600 ${
-                pathname === "/" ? "text-blue-600" : ""
+              className={`font-medium font-title hover:text-primary ${
+                pathname === "/" ? "text-primary" : ""
               }`}
             >
               Chat
@@ -30,8 +32,8 @@ export const Header = (props: Props) => {
           <li>
             <Link
               href="/browse"
-              className={`font-medium font-title hover:text-blue-600 ${
-                pathname === "/browse" ? "text-blue-600" : ""
+              className={`font-medium font-title hover:text-primary ${
+                pathname === "/browse" ? "text-primary" : ""
               }`}
             >
               Browse

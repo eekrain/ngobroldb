@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/card";
 import { TableView } from "@/components/table-view";
 import { PaginatedResponse } from "../types";
+import { useSmaller } from "@/lib/breakpoints";
 
 const LIMIT_PER_PAGE = 10;
 
@@ -37,6 +38,7 @@ export default function BrowseTable({
   fetchData,
   displayColumns,
 }: Props) {
+  const isSmallDevice = useSmaller("md");
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState<PaginatedResponse>({
     data: [],
@@ -100,40 +102,50 @@ export default function BrowseTable({
                 />
               </PaginationItem>
 
-              {currentPage > 2 && (
-                <>
-                  <PaginationItem>
-                    <PaginationLink onClick={() => handlePageChange(1)}>
-                      1
-                    </PaginationLink>
-                  </PaginationItem>
-                  {currentPage > 3 && <PaginationEllipsis />}
-                </>
-              )}
-
-              {generatePaginationNumbers().map((pageNumber) => (
-                <PaginationItem key={pageNumber}>
-                  <PaginationLink
-                    onClick={() => handlePageChange(pageNumber)}
-                    isActive={pageNumber === currentPage}
-                  >
-                    {pageNumber}
+              {isSmallDevice ? (
+                <PaginationItem>
+                  <PaginationLink onClick={() => {}}>
+                    {currentPage}
                   </PaginationLink>
                 </PaginationItem>
-              ))}
-
-              {currentPage < data.meta.totalPages - 1 && (
+              ) : (
                 <>
-                  {currentPage < data.meta.totalPages - 2 && (
-                    <PaginationEllipsis />
+                  {currentPage > 2 && (
+                    <>
+                      <PaginationItem>
+                        <PaginationLink onClick={() => handlePageChange(1)}>
+                          1
+                        </PaginationLink>
+                      </PaginationItem>
+                      {currentPage > 3 && <PaginationEllipsis />}
+                    </>
                   )}
-                  <PaginationItem>
-                    <PaginationLink
-                      onClick={() => handlePageChange(data.meta.totalPages)}
-                    >
-                      {data.meta.totalPages}
-                    </PaginationLink>
-                  </PaginationItem>
+
+                  {generatePaginationNumbers().map((pageNumber) => (
+                    <PaginationItem key={pageNumber}>
+                      <PaginationLink
+                        onClick={() => handlePageChange(pageNumber)}
+                        isActive={pageNumber === currentPage}
+                      >
+                        {pageNumber}
+                      </PaginationLink>
+                    </PaginationItem>
+                  ))}
+
+                  {currentPage < data.meta.totalPages - 1 && (
+                    <>
+                      {currentPage < data.meta.totalPages - 2 && (
+                        <PaginationEllipsis />
+                      )}
+                      <PaginationItem>
+                        <PaginationLink
+                          onClick={() => handlePageChange(data.meta.totalPages)}
+                        >
+                          {data.meta.totalPages}
+                        </PaginationLink>
+                      </PaginationItem>
+                    </>
+                  )}
                 </>
               )}
 
