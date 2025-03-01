@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
@@ -17,24 +18,24 @@ export const Header = (props: Props) => {
 
         <ul className="flex gap-4">
           <li>
-            <a
-              href="#"
+            <Link
+              href="/"
               className={`font-medium font-title hover:text-blue-600 ${
                 pathname === "/" ? "text-blue-600" : ""
               }`}
             >
               Chat
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              href="/browse"
               className={`font-medium font-title hover:text-blue-600 ${
                 pathname === "/browse" ? "text-blue-600" : ""
               }`}
             >
               Browse
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

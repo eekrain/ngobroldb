@@ -65,7 +65,7 @@ export const PromptInput = ({
           {submitted && (
             <TooltipProvider>
               <Tooltip>
-                <TooltipTrigger>
+                <TooltipTrigger asChild>
                   <Button
                     size="icon"
                     className="rounded-full"
@@ -84,11 +84,10 @@ export const PromptInput = ({
 
           <TooltipProvider>
             <Tooltip>
-              <TooltipTrigger>
+              <TooltipTrigger asChild>
                 <Button
-                  disabled={!inputValue}
                   size="icon"
-                  className="rounded-full"
+                  className={cn("rounded-full", !inputValue && "opacity-50")}
                 >
                   <TbZoomCode className="scale-125" />
                 </Button>

@@ -3,8 +3,7 @@ import { db } from "@/db";
 import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 import { generateObject } from "ai";
 import { z } from "zod";
-
-export type Result = Record<string, string | number>;
+import { Result } from "./types";
 
 const openrouter = createOpenRouter({
   apiKey: process.env.OPENROUTER_API_KEY!,

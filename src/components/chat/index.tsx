@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import { PromptInput } from "./prompt-input";
 import { SearchSuggestion } from "./search-suggestion";
-import PulseLoader from "react-spinners/PulseLoader";
-import { executeSQL, generateQuery, Result } from "@/app/action";
+import { executeSQL, generateQuery } from "@/app/action";
 import { PreviewSQL } from "./preview-sql";
 import { PreviewExecResult } from "./preview-exec-result";
+import { Result } from "@/app/types";
 
 type Props = {};
 
